@@ -77,7 +77,8 @@ public class Main {
         for (Object o: animals){
             StringBuilder sb = new StringBuilder();
             sb.append("\r\n").append("*****************");
-            sb.append("\r\n").append("Animal ").append(o.getClass().getSimpleName()).append(" ").append(o.toString());
+            String className = o.getClass().getSimpleName();
+            sb.append("\r\n").append("Animal of species ").append(className).append(" ").append(o.toString());
             System.out.println(sb.toString());
         }
 
