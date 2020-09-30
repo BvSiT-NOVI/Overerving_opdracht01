@@ -1,5 +1,10 @@
 package nl.novi.javaprogrammeren;
 
+import nl.novi.javaprogrammeren.overerving.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     // LET OP: het eerste gedeelte is hetzelfde als de klassikale opdracht.
@@ -38,12 +43,8 @@ public class Main {
      */
 
     /*
-    UITBREIDING
-    Maak nu ook de subklassen en override of super de methodes waar jij denkt dat je het nodig acht.
-    Zorg ervoor dat de Animal-klasse niet geïnstantieerd kan worden.
 
-    Er zijn hier meerdere oplossingen mogelijk. Bijna allemaal zijn ze goed, zolang je jouw oplossing maar kan
-    beargumenteren.
+
 
     UITDAGING:
     Alle dieren moeten kunnen bewegen. Dit moet als methode toegevoegd worden. Wanneer een huisdier beweegt print je in
@@ -56,6 +57,31 @@ public class Main {
      */
 
     public static void main (String[] args) {
+        Lion lion = new Lion("Leo","male","Africa","Lioncage");
+        Tiger tiger = new Tiger("Simba","male","India","Cage of Simba");
+        tiger.setNumStripes(23);
+        Wolf wolf = new Wolf("Mary","female","Germany","Cage of Mary Wolf");
+        wolf.setNamePack("White Fang");
+        Dog dog =new Dog("Bobbie","male","Kuifje","Bones","Yorkshire terrier");
+        Cat cat = new Cat("Shadow","female","Boudewijn","Whiskas","Siamese","buiten");
+
+        List<Object> animals = new ArrayList<>();
+
+        animals.add(lion);
+        animals.add(tiger);
+        animals.add(wolf);
+        animals.add(dog);
+        animals.add(cat);
+
+
+        for (Object o: animals){
+            StringBuilder sb = new StringBuilder();
+            sb.append("\r\n").append("*****************");
+            sb.append("\r\n").append("Animal ").append(o.getClass().getSimpleName()).append(" ").append(o.toString());
+            System.out.println(sb.toString());
+        }
+
+
 
     }
 }
