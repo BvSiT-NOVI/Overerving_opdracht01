@@ -2,6 +2,8 @@ package nl.novi.javaprogrammeren;
 
 import nl.novi.javaprogrammeren.overerving.*;
 
+import java.lang.reflect.Method;
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,8 +58,9 @@ public class Main {
     Zorg ervoor dat elk dier een eigen geluid maakt.
      */
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws NoSuchMethodException {
         Lion lion = new Lion("Leo","male","Africa","Lioncage");
+        lion.setDayOfWeekLastFed(DayOfWeek.MONDAY);
         Tiger tiger = new Tiger("Simba","male","India","Cage of Simba");
         tiger.setNumStripes(23);
         Wolf wolf = new Wolf("Mary","female","Germany","Cage of Mary Wolf");
@@ -73,16 +76,24 @@ public class Main {
         animals.add(dog);
         animals.add(cat);
 
-
         for (Object o: animals){
             StringBuilder sb = new StringBuilder();
             sb.append("\r\n").append("*****************");
             String className = o.getClass().getSimpleName();
             sb.append("\r\n").append("Animal of species ").append(className).append(" ").append(o.toString());
             System.out.println(sb.toString());
+            try {
+                o.getClass().getMethod("sleep").invoke(o);
+                o.getClass().getMethod("move").invoke(o);
+                if (o.getClass().getMethod("makeSound")!=null){
+                    System.out.println("makes sound: ");
+                    o.getClass().getMethod("makeSound").invoke(o);
+                }
+
+            }
+            catch (Exception e){
+                e.printStackTrace();//TODO Best practice to just ignore if method does not exists?
+            }
         }
-
-
-
     }
 }

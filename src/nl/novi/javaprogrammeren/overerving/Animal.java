@@ -35,6 +35,7 @@ abstract public class Animal {
         System.out.println("sleeps 8 hours a day");
     }
 
+    //TODO How to test this method?
     public void eat(String nameFood){
         System.out.println("eats " + nameFood);
     }

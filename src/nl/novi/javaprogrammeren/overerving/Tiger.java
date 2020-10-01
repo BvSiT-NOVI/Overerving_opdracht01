@@ -1,6 +1,8 @@
 package nl.novi.javaprogrammeren.overerving;
 
 import java.time.DayOfWeek;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class Tiger extends Animal{
 
@@ -58,6 +60,13 @@ public class Tiger extends Animal{
         sb.append("\n\r").append("Origin: ").append(getOrigin())
             .append("\n\r").append("Name cage: ").append(getNameCage())
             .append("\n\r").append("Number of stripes: ").append(getNumStripes());
+        sb.append("\n\r").append("Last fed on: ");
+        if(getDayOfWeekLastFed()!=null){
+            sb.append(getDayOfWeekLastFed().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
+        }
+        else {
+            sb.append(" not known");
+        }
         return sb.toString();
     }
 
