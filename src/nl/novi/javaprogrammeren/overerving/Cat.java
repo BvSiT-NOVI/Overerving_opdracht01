@@ -1,69 +1,19 @@
 package nl.novi.javaprogrammeren.overerving;
 
-public class Cat extends Animal{
+public class Cat extends Pet {
 
-    private String nameOwner;
-    private String foodBrand;
-    private String race;
-    private String habitat; //indoors or outdoors
+    private boolean isHouseCat;
 
-    public Cat(String name, String gender, String nameOwner, String foodBrand, String race, String habitat) {
-        super(name, gender);
-        this.nameOwner = nameOwner;
-        this.foodBrand = foodBrand;
-        this.race = race;
-        this.habitat = habitat;
+    public boolean isHouseCat() {
+        return isHouseCat;
     }
 
-    public String getNameOwner() {
-        return nameOwner;
-    }
-
-    public void setNameOwner(String nameOwner) {
-        this.nameOwner = nameOwner;
-    }
-
-    public String getFoodBrand() {
-        return foodBrand;
-    }
-
-    public void setFoodBrand(String foodBrand) {
-        this.foodBrand = foodBrand;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public void setRace(String race) {
-        this.race = race;
-    }
-
-    public String getHabitat() {
-        return habitat;
-    }
-
-    public void setHabitat(String habitat) {
-        this.habitat = habitat;
+    public void setHouseCat(boolean houseCat) {
+        isHouseCat = houseCat;
     }
 
     @Override
-    public void makeSound() {
-        System.out.println("MEOWW!");
+    public void sound() {
+        System.out.println("Meow");
     }
-
-    @Override
-    public void move() {
-        System.out.println("moves 0.50 m");
-    }
-
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.toString());
-        sb.append("\n\r").append("Name owner: ").append(getNameOwner())
-            .append("\n\r").append("Favorite food brand: ").append(getFoodBrand())
-            .append("\n\r").append("Race: ").append(getRace());
-        return sb.toString();
-    }
-
 }
